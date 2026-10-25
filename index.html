@@ -66,6 +66,15 @@ nav::-webkit-scrollbar{display:none}
 nav ul{display:flex;gap:4px;list-style:none;white-space:nowrap}
 nav a{display:block;text-decoration:none;font-size:.82rem;font-weight:500;padding:6px 12px;border-radius:100px;color:var(--muted);transition:background .2s,color .2s}
 nav a:hover{background:var(--hidamari);color:var(--sumi)}
+.menu-btn{display:none;place-items:center;width:44px;height:44px;margin-right:-10px;border:0;border-radius:12px;background:transparent;color:var(--sumi);cursor:pointer}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:20px;height:2px;border-radius:2px;background:currentColor}
+.menu-btn span{position:relative;transition:background .2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;transition:transform .25s}
+.menu-btn span::before{top:-6px}
+.menu-btn span::after{top:6px}
+header.open .menu-btn span{background:transparent}
+header.open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
+header.open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
 
 /* ===== セクション共通 ===== */
 section{padding:96px 0}
@@ -111,7 +120,7 @@ h3{font-weight:700;color:var(--sumi);font-size:1.08rem;line-height:1.6}
 .cat{overflow:hidden}
 .cat img{aspect-ratio:4/3;object-fit:cover;width:100%}
 .cat div{padding:14px 18px}
-.cat b{font-family:'Noto Serif JP',serif;font-size:1.15rem;color:var(--sumi)}
+.cat b{font-size:1.05rem;color:var(--sumi)}
 
 /* ===== キャリア ===== */
 .career{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
@@ -211,6 +220,11 @@ footer .sns a:hover{border-color:var(--engawa)}
 
 /* ===== レスポンシブ ===== */
 @media (max-width:900px){
+  .menu-btn{display:grid}
+  nav{display:none;position:absolute;top:100%;left:0;right:0;overflow:visible;background:var(--kinari);border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(20,20,20,.08)}
+  header.open nav{display:block}
+  nav ul{flex-direction:column;gap:2px;max-width:var(--wrap);margin:0 auto;padding:8px 16px 16px}
+  nav a{font-size:1rem;color:var(--sumi);padding:12px 12px;border-radius:12px}
   .g3,.g4{grid-template-columns:repeat(2,1fr)}
   .cats.g3{grid-template-columns:repeat(3,1fr);gap:12px}
   .hero-in,.career,.project,.community{grid-template-columns:1fr}
@@ -232,7 +246,6 @@ footer .sns a:hover{border-color:var(--engawa)}
   .art span{font-size:.8rem}
   .mvv{padding:4px 20px}
   .mvv .row{grid-template-columns:1fr;gap:4px;padding:18px 0}
-  .brand span{display:none}
   .name-avatar{width:72px;height:72px}
   .name-row{gap:16px}
   .linkrow img{width:80px}
@@ -247,7 +260,8 @@ footer .sns a:hover{border-color:var(--engawa)}
 <header>
   <div class="wrap head">
     <a class="brand" href="#top"><img src="images/avatar.jpg" alt=""><span>Kazuki Nakajima</span></a>
-    <nav aria-label="ページ内">
+    <button class="menu-btn" type="button" aria-label="メニューをひらく" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+    <nav id="site-nav" aria-label="ページ内">
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#career">Career</a></li>
@@ -536,6 +550,20 @@ footer .sns a:hover{border-color:var(--engawa)}
 </footer>
 
 <script>
+// スマホのメニュー（ハンバーガー）
+(function(){
+  var header=document.querySelector('header'), btn=header.querySelector('.menu-btn');
+  function set(open){
+    header.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'メニューをとじる':'メニューをひらく');
+  }
+  btn.addEventListener('click',function(){set(!header.classList.contains('open'))});
+  header.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+  document.addEventListener('click',function(e){if(!header.contains(e.target))set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+})();
+
 // スクロールで要素をふわっと出す
 (function(){
   var els=document.querySelectorAll('.reveal');
