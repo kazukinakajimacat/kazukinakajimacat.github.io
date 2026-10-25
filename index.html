@@ -135,6 +135,7 @@ h3{font-weight:700;color:var(--sumi);font-size:1.08rem;line-height:1.6}
 .timeline p{font-size:.88rem;color:var(--muted);line-height:1.7}
 .reflect{margin-top:36px}
 .reflect h3{margin-bottom:12px}
+.reflect.flush{margin-top:0}
 .linkrow{display:flex;align-items:center;gap:14px;padding:14px 18px;text-decoration:none;transition:transform .2s}
 .linkrow:hover{transform:translateY(-2px)}
 .linkrow img{width:96px;aspect-ratio:1200/630;object-fit:cover;border-radius:8px;flex:none}
@@ -227,7 +228,14 @@ footer .sns a:hover{border-color:var(--engawa)}
   nav a{font-size:1rem;color:var(--sumi);padding:12px 12px;border-radius:12px}
   .g3,.g4{grid-template-columns:repeat(2,1fr)}
   .cats.g3{grid-template-columns:repeat(3,1fr);gap:12px}
-  .hero-in,.career,.project,.community{grid-template-columns:1fr}
+  .hero-in,.project,.community{grid-template-columns:1fr}
+  .career{display:flex;flex-direction:column;align-items:stretch;gap:0}
+  .career > div:first-child{display:contents}
+  .career .eyebrow{order:1}
+  .career h2{order:2}
+  .career .timeline{order:3}
+  .career .sidework{order:4;margin-top:16px}
+  .career .reflect{order:5;margin-top:48px}
   .hero-in{gap:40px}
   .portrait{display:none}
   .name-avatar{display:block}
@@ -311,6 +319,8 @@ footer .sns a:hover{border-color:var(--engawa)}
     <div class="lead reveal">
       <p>食品メーカーでの法人営業から始まり、転職エージェントでRA/CAを経験し、採用人事としてキャリアを歩んでいます。</p>
       <p>採用やキャリアに関する支援を行いながら、過去一緒に働いたメンバーたちと『HR Share』というコミュニティを立ち上げ、「採用」や「人事」についてディスカッションしています。2022年8月にキャリアコンサルタント試験に合格し、キャリア支援にもこれまで以上に力を入れています。</p>
+      <p>採用は点ではなく線という考え方を持ち、良い組織をつくること、社外にその価値を正しく伝えること、そして候補者の方に納得感のある選考体験を提供することを重視しています。入社してくれた方と一緒に組織をより良くしていくところまでを採用活動の一部として捉えています。</p>
+      <p>今後は、関わり方にこだわらず（本業・副業・ボランティア含め）活動領域を広げていきます。</p>
     </div>
     <h3 class="cats-title">一緒に暮らしている やきとり3兄弟</h3>
     <div class="grid g3 cats">
@@ -327,13 +337,7 @@ footer .sns a:hover{border-color:var(--engawa)}
     <div>
       <p class="eyebrow">Career</p>
       <h2>簡単なキャリア</h2>
-      <div class="lead reveal">
-        <p>株式会社IVRyにて、コーポレート領域の中途採用、採用広報、採用Opsを担当しています。</p>
-        <p>仕事では、良い組織をつくること、社外にその価値を正しく伝えること、そして候補者の方に納得感のある選考体験を提供することを重視しています。入社後も、仲間と一緒に組織をより良くしていくところまでを採用活動の一部として捉えています。</p>
-        <p>今後は、関わり方にこだわらず（本業・副業・ボランティア含め）活動領域を広げていきます。</p>
-      </div>
-
-      <div class="reflect reveal">
+      <div class="reflect flush reveal">
         <h3>振り返り記事</h3>
         <div class="stack">
           <a class="card linkrow" href="https://note.com/yakitori_marinos/n/nfc58505a1b1f" target="_blank" rel="noopener"><img src="images/note-8.jpg" alt="" loading="lazy"><span>人が力を出し切るために、何ができるか ── プロダクト採用を終えて、次の挑戦<small>note ・ 2025.12.29</small></span></a>
