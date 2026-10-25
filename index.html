@@ -195,6 +195,12 @@ blockquote::before{content:"“";position:absolute;top:-6px;left:16px;font-size:
 .art div{padding:14px 16px 18px}
 .art time{font-size:.74rem;color:var(--muted)}
 .art span{display:block;font-size:.86rem;font-weight:500;line-height:1.6;color:var(--sumi)}
+.magazine{margin-top:20px;display:flex;align-items:center;gap:28px;padding:20px;text-decoration:none;transition:transform .25s}
+.magazine:hover{transform:translateY(-3px)}
+.magazine img{width:240px;aspect-ratio:800/425;object-fit:cover;border-radius:12px;flex:none}
+.magazine .site{font-size:.75rem;letter-spacing:.14em;color:var(--muted);font-weight:500}
+.magazine h3{margin:2px 0 4px}
+.magazine p{font-size:.88rem;line-height:1.8;margin-bottom:6px}
 
 /* ===== コミュニティ ===== */
 .community{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
@@ -259,6 +265,8 @@ footer .sns a:hover{border-color:var(--engawa)}
   .name-row{gap:16px}
   .linkrow img{width:80px}
   .project-body{padding:24px 20px}
+  .magazine{flex-direction:column;align-items:stretch;gap:14px;padding:16px}
+  .magazine img{width:100%}
   .sidework ul{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row;padding:0}
 }
 </style>
@@ -522,6 +530,15 @@ footer .sns a:hover{border-color:var(--engawa)}
         <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n0992d46f8d7b" target="_blank" rel="noopener"><img src="images/note-1.jpg" alt="" loading="lazy"><div><time datetime="2025-09-07">2025.09.07</time><span>採用の未来を拓く ── 組織成長を加速する「採用×組織作り×技術発信・採用広報」の循環型モデル</span></div></a>
         <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n02e2cc335947" target="_blank" rel="noopener"><img src="images/note-7.jpg" alt="" loading="lazy"><div><time datetime="2024-12-22">2024.12.22</time><span>自己分析をしたら行動指針も作ってみませんか？</span></div></a>
       </div>
+      <a class="card magazine reveal" href="https://note.com/yakitori_marinos/m/m55a00fddc8eb" target="_blank" rel="noopener">
+        <img src="images/note-magazine.jpg" alt="" loading="lazy">
+        <div>
+          <span class="site">NOTE ・ マガジン</span>
+          <h3>所属企業での執筆記事</h3>
+          <p>今まで執筆してきた記事のまとめです。</p>
+          <span class="more">すべての記事を見る →</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
