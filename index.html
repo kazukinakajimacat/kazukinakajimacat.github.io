@@ -88,15 +88,13 @@ h3{font-weight:700;color:var(--sumi);font-size:1.08rem;line-height:1.6}
 
 /* ===== ヒーロー ===== */
 .hero{padding:88px 0 96px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:0 0 0 auto;width:45%;pointer-events:none;
-  background:linear-gradient(115deg,transparent 0%,rgba(0,0,0,.025) 45%,rgba(225,225,222,.55) 100%)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 45%,rgba(0,0,0,.02) 70%,rgba(225,225,222,.55) 100%)}
 .hero-in{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
 .name{font-family:'Noto Serif JP',serif;font-weight:700;font-size:clamp(2.4rem,6vw,4rem);line-height:1.25;color:var(--sumi);letter-spacing:.08em}
 .name-en{font-size:1rem;letter-spacing:.3em;color:var(--engawa);font-weight:500;margin:8px 0 28px}
 .title-en{font-family:'Noto Serif JP',serif;font-weight:700;font-size:clamp(1.25rem,2.6vw,1.6rem);color:var(--akane);letter-spacing:.04em;line-height:1.4}
 .statement{font-family:'Noto Serif JP',serif;font-weight:600;font-size:clamp(.95rem,1.8vw,1.08rem);color:var(--sumi);line-height:1.8;margin:6px 0 24px;max-width:32rem}
-.role{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.role span{font-size:.82rem;font-weight:500;padding:4px 14px;border-radius:100px;border:1px solid var(--komorebi);background:var(--card)}
 .hero p.intro{font-size:1.05rem;max-width:34rem;margin-bottom:32px}
 .sns{display:flex;flex-wrap:wrap;gap:10px}
 .sns a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:.85rem;font-weight:700;padding:10px 18px;border-radius:100px;background:var(--card);border:1px solid var(--line);transition:transform .2s,border-color .2s}
@@ -104,7 +102,7 @@ h3{font-weight:700;color:var(--sumi);font-size:1.08rem;line-height:1.6}
 .sns svg{width:16px;height:16px;flex:none}
 .portrait{justify-self:center;width:min(360px,100%);aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--card);box-shadow:0 20px 50px rgba(20,20,20,.15)}
 .portrait img{width:100%;height:100%;object-fit:cover}
-.name-row{display:flex;align-items:center;gap:20px;margin-bottom:28px}
+.name-row{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:28px}
 .name-row .name-en{margin-bottom:0}
 .name-avatar{display:none;width:88px;height:88px;max-width:none;flex:none;border-radius:50%;object-fit:cover;border:4px solid var(--card);box-shadow:0 8px 20px rgba(20,20,20,.12)}
 
@@ -272,23 +270,19 @@ footer .sns a:hover{border-color:var(--engawa)}
   <div class="wrap hero-in">
     <div>
       <div class="name-row">
-        <img class="name-avatar" src="images/avatar.jpg" alt="">
         <div>
           <h1 class="name">中島 一貴</h1>
           <p class="name-en">KAZUKI NAKAJIMA</p>
         </div>
+        <img class="name-avatar" src="images/avatar.jpg" alt="">
       </div>
       <p class="title-en">Talent Success Partner</p>
       <p class="statement">── 一人ひとりの熱狂に伴走し、パフォーマンスを最大化する環境を構築する</p>
-      <div class="role">
-        <span>採用人事</span><span>採用広報・採用Ops</span><span>国家資格キャリアコンサルタント</span>
-      </div>
       <p class="intro">妻と娘2人と猫3匹で、ゆるりと暮らしています。<br>採用とキャリアの支援を軸に、保護猫と人事が出会う場所「猫の縁側」を構想中です。</p>
       <div class="sns">
         <a href="https://x.com/kazuki_nakajima" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
         <a href="https://www.linkedin.com/in/kazukinakajima/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
         <a href="https://note.com/yakitori_marinos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 20V8a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v12"/></svg>note</a>
-        <a href="https://sizu.me/kazu_yakitori" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13"/></svg>しずかなインターネット</a>
       </div>
     </div>
     <div class="portrait"><img src="images/avatar.jpg" alt="Kazuki Nakajima のアイコン（黒猫のエンブレム）"></div>
