@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中島 一貴 ｜ Kazuki Nakajima</title>
+<meta name="description" content="採用人事・国家資格キャリアコンサルタントの中島一貴のプロフィール。キャリア、行動指針、猫の縁側、自己開発、ブログ、SNSをまとめています。">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="中島 一貴 ｜ Kazuki Nakajima">
+<meta property="og:description" content="Talent Success Partner ── 一人ひとりの熱狂に伴走し、パフォーマンスを最大化する環境を構築する。">
+<meta property="og:url" content="https://kazukinakajimacat.github.io/">
+<meta property="og:site_name" content="Kazuki Nakajima">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://kazukinakajimacat.github.io/images/avatar.jpg">
+<meta property="og:image:alt" content="Kazuki Nakajima のアイコン（黒猫のエンブレム）">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://kazukinakajimacat.github.io/">
+<meta name="twitter:site" content="@kazuki_nakajima">
+<link rel="icon" href="images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --kinari:#F3F3F1;      /* 薄いグレー（背景） */
+  --hidamari:#E7E7E4;    /* グレー（帯） */
+  --komorebi:#D4D4D0;    /* 線 */
+  --engawa:#9C9C97;      /* ロゴのグレー */
+  --daidai:#D98A4E;      /* ぬくもりの橙 */
+  --akane:#B5532F;       /* 夕暮れの茜（強調） */
+  --sumi:#1A1A1A;        /* 見出し */
+  --text:#2B2B2B;        /* 本文 */
+  --muted:#6E6E6A;       /* 補足 */
+  --moss:#7B8A5A;        /* 苔の緑 */
+  --card:#FFFFFF;
+  --line:rgba(20,20,20,.12);
+  --shadow:0 10px 30px rgba(20,20,20,.08);
+  --radius:20px;
+  --wrap:1080px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{
+  font-family:'M PLUS Rounded 1c',system-ui,sans-serif;
+  background:var(--kinari);color:var(--text);
+  line-height:1.9;font-weight:400;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+.serif{font-family:'Noto Serif JP',serif}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+
+/* ===== ヘッダー ===== */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(243,243,241,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.head{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.08em;white-space:nowrap}
+.brand img{width:32px;height:32px;border-radius:50%;flex:none}
+nav{overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav ul{display:flex;gap:4px;list-style:none;white-space:nowrap}
+nav a{display:block;text-decoration:none;font-size:.82rem;font-weight:500;padding:6px 12px;border-radius:100px;color:var(--muted);transition:background .2s,color .2s}
+nav a:hover{background:var(--hidamari);color:var(--sumi)}
+
+/* ===== セクション共通 ===== */
+section{padding:96px 0}
+section.band{background:var(--hidamari)}
+.eyebrow{font-size:.78rem;letter-spacing:.32em;color:var(--akane);font-weight:500;margin-bottom:12px;text-transform:uppercase}
+h2{font-family:'Noto Serif JP',serif;font-weight:700;font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.5;color:var(--sumi);letter-spacing:.04em;margin-bottom:28px}
+h3{font-weight:700;color:var(--sumi);font-size:1.08rem;line-height:1.6}
+.lead{max-width:44rem;font-size:1.02rem}
+.lead p+p{margin-top:1em}
+.sub{font-size:.85rem;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.label{display:inline-block;align-self:flex-start;font-size:.72rem;font-weight:700;letter-spacing:.06em;padding:2px 10px;border-radius:100px;background:var(--hidamari);color:var(--muted)}
+.label.prep{background:#F6E2D2;color:var(--akane)}
+.more{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.9rem;color:var(--akane);text-decoration:none;transition:gap .2s}
+.more:hover{gap:10px}
+
+/* ===== ヒーロー ===== */
+.hero{padding:88px 0 96px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0 0 0 auto;width:45%;pointer-events:none;
+  background:linear-gradient(115deg,transparent 0%,rgba(0,0,0,.025) 45%,rgba(225,225,222,.55) 100%)}
+.hero-in{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+.name{font-family:'Noto Serif JP',serif;font-weight:700;font-size:clamp(2.4rem,6vw,4rem);line-height:1.25;color:var(--sumi);letter-spacing:.08em}
+.name-en{font-size:1rem;letter-spacing:.3em;color:var(--engawa);font-weight:500;margin:8px 0 28px}
+.title-en{font-family:'Noto Serif JP',serif;font-weight:700;font-size:clamp(1.25rem,2.6vw,1.6rem);color:var(--akane);letter-spacing:.04em;line-height:1.4}
+.statement{font-family:'Noto Serif JP',serif;font-weight:600;font-size:clamp(.95rem,1.8vw,1.08rem);color:var(--sumi);line-height:1.8;margin:6px 0 24px;max-width:32rem}
+.role{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.role span{font-size:.82rem;font-weight:500;padding:4px 14px;border-radius:100px;border:1px solid var(--komorebi);background:var(--card)}
+.hero p.intro{font-size:1.05rem;max-width:34rem;margin-bottom:32px}
+.sns{display:flex;flex-wrap:wrap;gap:10px}
+.sns a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:.85rem;font-weight:700;padding:10px 18px;border-radius:100px;background:var(--card);border:1px solid var(--line);transition:transform .2s,border-color .2s}
+.sns a:hover{transform:translateY(-2px);border-color:var(--engawa)}
+.sns svg{width:16px;height:16px;flex:none}
+.portrait{justify-self:center;width:min(360px,100%);aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--card);box-shadow:0 20px 50px rgba(20,20,20,.15)}
+.portrait img{width:100%;height:100%;object-fit:cover}
+
+/* ===== 猫 ===== */
+.cats-title{margin:48px 0 16px}
+.cat{overflow:hidden}
+.cat img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.cat div{padding:14px 18px}
+.cat b{font-family:'Noto Serif JP',serif;font-size:1.15rem;color:var(--sumi)}
+
+/* ===== キャリア ===== */
+.career{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.timeline{list-style:none;position:relative;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:var(--komorebi)}
+.timeline li{position:relative;padding:0 0 22px}
+.timeline li::before{content:"";position:absolute;left:-26px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--kinari);border:2.5px solid var(--engawa)}
+.timeline li.now::before{background:var(--akane);border-color:var(--akane)}
+.timeline .no{font-size:.72rem;color:var(--muted);letter-spacing:.1em;font-weight:500}
+.timeline a{font-weight:700;color:var(--sumi);text-decoration:none;border-bottom:1px solid var(--komorebi)}
+.timeline a:hover{border-color:var(--akane)}
+.timeline p{font-size:.88rem;color:var(--muted);line-height:1.7}
+.reflect{margin-top:36px}
+.reflect h3{margin-bottom:12px}
+.linkrow{display:flex;align-items:center;gap:14px;padding:14px 18px;text-decoration:none;transition:transform .2s}
+.linkrow:hover{transform:translateY(-2px)}
+.linkrow img{width:96px;aspect-ratio:1200/630;object-fit:cover;border-radius:8px;flex:none}
+.linkrow span{font-size:.9rem;font-weight:500;line-height:1.6}
+.linkrow small{display:block;font-size:.75rem;color:var(--muted)}
+.stack{display:grid;gap:12px}
+
+/* ===== 行動指針 ===== */
+.mvv{padding:18px 32px}
+.mvv .row{display:grid;grid-template-columns:140px 1fr;gap:20px;align-items:center;padding:14px 0}
+.mvv dt{font-family:'Noto Serif JP',serif;font-weight:700;font-size:1.1rem;color:var(--akane);letter-spacing:.06em}
+.mvv dd{font-weight:500;color:var(--sumi);font-size:1.02rem}
+blockquote{padding:24px 26px;font-family:'Noto Serif JP',serif;font-weight:600;color:var(--sumi);font-size:1rem;line-height:1.9;position:relative}
+blockquote::before{content:"“";position:absolute;top:-6px;left:16px;font-size:3rem;color:var(--komorebi);line-height:1}
+.future ol{list-style:none;counter-reset:f;display:grid;gap:14px}
+.future li{counter-increment:f;display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;padding:20px 24px}
+.future li::before{content:counter(f,decimal-leading-zero);font-family:'Noto Serif JP',serif;font-weight:700;font-size:1.4rem;color:var(--engawa);line-height:1.4}
+
+/* ===== プロジェクト ===== */
+.project{display:grid;grid-template-columns:1fr 1.25fr;overflow:hidden;text-decoration:none;transition:transform .25s}
+.project:hover{transform:translateY(-4px)}
+.project-art{width:100%;height:100%;object-fit:cover;min-height:320px}
+.project-body{padding:36px 40px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.project-head{display:flex;align-items:center;gap:14px}
+.project-head img{width:60px;height:60px;border-radius:14px;flex:none;object-fit:cover;box-shadow:var(--shadow)}
+.project-head h3{font-family:'Noto Serif JP',serif;font-size:1.4rem}
+.project .catch{font-family:'Noto Serif JP',serif;font-weight:600;color:var(--sumi);font-size:1.08rem}
+.project p{font-size:.94rem}
+.project .more{margin-top:4px}
+
+/* ===== 自己開発 ===== */
+.app{overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .25s}
+.app:hover{transform:translateY(-4px)}
+.app img{aspect-ratio:4/3;object-fit:cover;object-position:top;width:100%;border-bottom:1px solid var(--line)}
+.app img.logo{object-fit:contain;object-position:center;padding:28px 24px;background:#fff}
+.app .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.app p{font-size:.88rem;line-height:1.8}
+.app .more{margin-top:auto;padding-top:6px}
+
+/* ===== ブログ・記事 ===== */
+.blog{padding:26px;text-decoration:none;display:flex;flex-direction:column;gap:10px;transition:transform .25s}
+.blog:hover{transform:translateY(-4px)}
+.blog .site{font-size:.75rem;letter-spacing:.14em;color:var(--muted);font-weight:500}
+.blog p{font-size:.88rem;line-height:1.8}
+.blog .more{margin-top:auto}
+.articles{margin-top:56px}
+.articles h3{margin-bottom:16px}
+.art{overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .25s}
+.art:hover{transform:translateY(-3px)}
+.art img{aspect-ratio:1200/630;object-fit:cover;width:100%}
+.art div{padding:14px 16px 18px}
+.art time{font-size:.74rem;color:var(--muted)}
+.art span{display:block;font-size:.86rem;font-weight:500;line-height:1.6;color:var(--sumi)}
+
+/* ===== コミュニティ ===== */
+.community{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.community .card{padding:28px}
+.community p{font-size:.94rem}
+.cal{display:grid;gap:12px}
+.cal a{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;text-decoration:none;font-weight:700;transition:transform .2s}
+.cal a:hover{transform:translateX(4px)}
+
+/* ===== フッター ===== */
+footer{background:var(--sumi);color:#E9E1D2;padding:72px 0 40px}
+footer h2{color:#fff}
+footer .sns a{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#fff}
+footer .sns a:hover{border-color:var(--engawa)}
+.copy{margin-top:48px;font-size:.75rem;color:#A8998A;letter-spacing:.1em}
+
+/* ===== 出現アニメーション ===== */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width:900px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .cats.g3{grid-template-columns:repeat(3,1fr);gap:12px}
+  .hero-in,.career,.project,.community{grid-template-columns:1fr}
+  .hero-in{gap:40px}
+  .portrait{width:240px;grid-row:1}
+  .project-art{aspect-ratio:16/9;min-height:0;height:auto}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  section{padding:64px 0}
+  .hero{padding:48px 0 64px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .cats.g3{grid-template-columns:repeat(3,1fr);gap:10px}
+  .cat div{padding:8px 10px}
+  .cat b{font-size:.95rem}
+  .art-grid.g4{grid-template-columns:repeat(2,1fr);gap:12px}
+  .art div{padding:10px 12px 14px}
+  .art span{font-size:.8rem}
+  .mvv{padding:4px 20px}
+  .mvv .row{grid-template-columns:1fr;gap:4px;padding:18px 0}
+  .brand span{display:none}
+  .portrait{width:200px}
+  .linkrow img{width:80px}
+  .project-body{padding:24px 20px}
+}
+</style>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+<header>
+  <div class="wrap head">
+    <a class="brand" href="#top"><img src="images/avatar.jpg" alt=""><span>Kazuki Nakajima</span></a>
+    <nav aria-label="ページ内">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#career">Career</a></li>
+        <li><a href="#principles">Principles</a></li>
+        <li><a href="#words">Words</a></li>
+        <li><a href="#future">Future</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#writing">Blog</a></li>
+        <li><a href="#community">Community</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===== ヒーロー ===== -->
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <h1 class="name">中島 一貴</h1>
+      <p class="name-en">KAZUKI NAKAJIMA</p>
+      <p class="title-en">Talent Success Partner</p>
+      <p class="statement">── 一人ひとりの熱狂に伴走し、パフォーマンスを最大化する環境を構築する</p>
+      <div class="role">
+        <span>採用人事</span><span>採用広報・採用Ops</span><span>国家資格キャリアコンサルタント</span>
+      </div>
+      <p class="intro">妻と娘2人と猫3匹で、ゆるりと暮らしています。<br>採用とキャリアの支援を軸に、保護猫と人事が出会う場所「猫の縁側」を構想中です。</p>
+      <div class="sns">
+        <a href="https://x.com/kazuki_nakajima" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+        <a href="https://www.linkedin.com/in/kazukinakajima/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+        <a href="https://note.com/yakitori_marinos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 20V8a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v12"/></svg>note</a>
+        <a href="https://sizu.me/kazu_yakitori" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13"/></svg>しずかなインターネット</a>
+      </div>
+    </div>
+    <div class="portrait"><img src="images/avatar.jpg" alt="Kazuki Nakajima のアイコン（黒猫のエンブレム）"></div>
+  </div>
+</section>
+
+<!-- ===== 自己紹介 ===== -->
+<section id="about" class="band">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <h2>自己紹介</h2>
+    <div class="lead reveal">
+      <p>食品メーカーでの法人営業から始まり、転職エージェントでRA/CAを経験し、採用人事としてキャリアを歩んでいます。</p>
+      <p>採用やキャリアに関する支援を行いながら、過去一緒に働いたメンバーたちと『HR Share』というコミュニティを立ち上げ、「採用」や「人事」についてディスカッションしています。2022年8月にキャリアコンサルタント試験に合格し、キャリア支援にもこれまで以上に力を入れています。</p>
+    </div>
+    <h3 class="cats-title">一緒に暮らしている やきとり3兄弟</h3>
+    <div class="grid g3 cats">
+      <figure class="card cat reveal"><img src="images/kashira.jpg" alt="黒猫のかしら" loading="lazy"><div><b>かしら</b></div></figure>
+      <figure class="card cat reveal"><img src="images/bonjiri.jpg" alt="猫のぼんじり" loading="lazy"><div><b>ぼんじり</b></div></figure>
+      <figure class="card cat reveal"><img src="images/tsukune.jpg" alt="猫のつくね" loading="lazy"><div><b>つくね</b></div></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== キャリア ===== -->
+<section id="career">
+  <div class="wrap career">
+    <div>
+      <p class="eyebrow">Career</p>
+      <h2>簡単なキャリア</h2>
+      <div class="lead reveal">
+        <p>株式会社IVRyにて、コーポレート領域の中途採用、採用広報、採用Opsを担当しています。</p>
+        <p>仕事では、良い組織をつくること、社外にその価値を正しく伝えること、そして候補者の方に納得感のある選考体験を提供することを重視しています。入社後も、仲間と一緒に組織をより良くしていくところまでを採用活動の一部として捉えています。</p>
+        <p>今後は、関わり方にこだわらず（本業・副業・ボランティア含め）活動領域を広げていきます。</p>
+      </div>
+
+      <div class="reflect reveal">
+        <h3>振り返り記事</h3>
+        <div class="stack">
+          <a class="card linkrow" href="https://note.com/yakitori_marinos/n/nfc58505a1b1f" target="_blank" rel="noopener"><img src="images/note-8.jpg" alt="" loading="lazy"><span>人が力を出し切るために、何ができるか ── プロダクト採用を終えて、次の挑戦<small>note ・ 2025.12.29</small></span></a>
+          <a class="card linkrow" href="https://sizu.me/kazu_yakitori/posts/k6bbr8t2d1z6" target="_blank" rel="noopener"><span>自己認識と行動原理の変遷レポート（2019-2026）<small>しずかなインターネット ・ 2026.03.01</small></span></a>
+        </div>
+      </div>
+    </div>
+
+    <ol class="timeline reveal">
+      <li><span class="no">1社目</span><br><a href="https://www.banjo.co.jp/" target="_blank" rel="noopener">株式会社万城食品</a><p>法人営業（ルートセールス営業 ⇒ 本部商談営業）</p></li>
+      <li><span class="no">2社目</span><br><a href="https://cdc.type.jp/" target="_blank" rel="noopener">株式会社キャリアデザインセンター</a><p>RA ⇒ CA ⇒ CAをやりながらRAも少し</p></li>
+      <li><span class="no">3社目</span><br><a href="https://www.persol-career.co.jp/" target="_blank" rel="noopener">パーソルキャリア株式会社</a><p>CA ⇒ ハイキャリアCA ⇒ CA育成チーム</p></li>
+      <li><span class="no">4社目</span><br><a href="https://thecoo.co.jp/" target="_blank" rel="noopener">THECOO株式会社</a><p>採用（エンジニアとデザイナーを中心に新卒も少し）と採用広報</p></li>
+      <li><span class="no">5社目</span><br><a href="https://corp.timee.co.jp/" target="_blank" rel="noopener">株式会社タイミー</a><p>エンジニア採用</p></li>
+      <li><span class="no">6社目</span><br><a href="https://commmune.jp/" target="_blank" rel="noopener">コミューン株式会社</a><p>エンジニア採用 ⇒ DevHR</p></li>
+      <li class="now"><span class="no">7社目・現職</span><br><a href="https://ivry.jp/company/" target="_blank" rel="noopener">株式会社IVRy</a><p>エンジニア採用・採用広報/技術広報・採用Ops ⇒ コーポレート採用・採用広報・採用Ops</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 行動指針 ===== -->
+<section id="principles" class="band">
+  <div class="wrap">
+    <p class="eyebrow">Principles</p>
+    <h2>行動指針</h2>
+    <dl class="card mvv reveal">
+      <div class="row"><dt>Journey</dt><dd>家族を守り、熱狂した人生を歩む</dd></div>
+      <div class="row"><dt>Vision</dt><dd>人生に熱狂している人が溢れている世界の実現</dd></div>
+      <div class="row"><dt>Mission</dt><dd>採用から定着までを繋ぎ、組織の成長と個人の熱狂を両立させる</dd></div>
+      <div class="row"><dt>Value</dt><dd>家族が最優先・主体的に学ぶ・背中を押す・対立を恐れない・楽しさを大切に・自分が決める</dd></div>
+      <div class="row"><dt>Purpose</dt><dd>働く人の可能性を最大化し、地方から日本の成長を加速させる</dd></div>
+    </dl>
+
+    <div class="reflect reveal">
+      <h3>関連記事</h3>
+      <div class="stack">
+        <a class="card linkrow" href="https://sizu.me/kazu_yakitori/posts/okrdxexznwcm" target="_blank" rel="noopener"><span>Frag.205<small>しずかなインターネット ・ 2026.02.22</small></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 好きな言葉 ===== -->
+<section id="words">
+  <div class="wrap">
+    <p class="eyebrow">Words</p>
+    <h2>好きな言葉</h2>
+    <div class="grid g3">
+      <blockquote class="card reveal">努力した者が全て報われるとは限らない。しかし、成功した者は皆すべからく努力している。</blockquote>
+      <blockquote class="card reveal">人は必要な時に必要な人と会う。</blockquote>
+      <blockquote class="card reveal">人は会社がなくても生きていけるが、会社は人がいなければ存在できない。</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 目指す未来 ===== -->
+<section id="future" class="band">
+  <div class="wrap future">
+    <p class="eyebrow">Future</p>
+    <h2>目指す未来</h2>
+    <ol>
+      <li class="card reveal"><span>まずは猫の殺処分を0にする。次に犬。最終的に殺処分という行為を無くす。</span></li>
+      <li class="card reveal"><span>人材を起点に地方を変え、日本の成長を地方から加速させる。</span></li>
+      <li class="card reveal"><span>「人事×コミュニティ」から「人事×コミュニティ×コーチング」へ。そして「人事×コミュニティ×コーチング×テクノロジー」に進化させ、人事の在り方をアップデートさせる。</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== プロジェクト ===== -->
+<section id="project">
+  <div class="wrap">
+    <p class="eyebrow">Project</p>
+    <h2>進めているプロジェクト</h2>
+    <a class="card project reveal" href="https://kazukinakajimacat.github.io/nekono-engawa/" target="_blank" rel="noopener">
+      <img class="project-art" src="images/engawa-illust.jpg" alt="縁側に座る猫のイラスト" loading="lazy">
+      <div class="project-body">
+        <div class="project-head">
+          <img src="images/engawa-logo.jpg" alt="猫の縁側 ロゴ" loading="lazy">
+          <div><h3>猫の縁側</h3><span class="label prep">進行中</span></div>
+        </div>
+        <p class="catch">猫がつなぐ、人と地域と、はたらく悩み。</p>
+        <p>保護された猫がいる縁側で、地域の人が集まり、人事の悩みを語り合える場所をつくろうとしています。保護猫のいる場所・地域人事のコミュニティ・人事の相談場所・コワーキングスペース、四つの顔をもつ拠点を目指しています。</p>
+        <span class="more">プロジェクトのサイトを見る →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ===== 自己開発 ===== -->
+<section id="works" class="band">
+  <div class="wrap">
+    <p class="eyebrow">Works</p>
+    <h2>自己開発</h2>
+    <p class="lead" style="margin-bottom:32px">AIを活用して、サービスづくりに挑戦しています。人事の仕事の中で感じた不便や、家族・趣味の「あったらいいな」を、企画から設計・開発・公開まで自分の手で形にしています。</p>
+    <div class="grid g3">
+      <a class="card app reveal" href="https://kazukinakajimacat.github.io/keisan-renshu/" target="_blank" rel="noopener">
+        <img class="logo" src="images/keisan-logo.png" alt="けいさん れんしゅう ロゴ" loading="lazy">
+        <div class="body">
+          <span class="label">学習アプリ</span>
+          <h3>けいさん れんしゅう</h3>
+          <p>小学1年生が、10までのたし算・ひき算を毎日楽しく続けるために作られたサービスです。ねこの みー と いぬの ころ が、いっしょに応援します。</p>
+          <span class="more">ひらく →</span>
+        </div>
+      </a>
+      <a class="card app reveal" href="https://kazukinakajimacat.github.io/utm-builder-cat/" target="_blank" rel="noopener">
+        <img src="images/app-utm-builder-cat.jpg" alt="流入計測URL作成ツール の画面" loading="lazy">
+        <div class="body">
+          <span class="label">採用広報ツール</span>
+          <h3>流入計測URL作成ツール ( UTM Builder )</h3>
+          <p>LinkedIn・X・Facebook・YOUTRUST・メルマガなどへの投稿用に、GA4で識別できるUTMパラメータ付きURLを生成するシンプルなWebツールです。</p>
+          <span class="more">ひらく →</span>
+        </div>
+      </a>
+      <a class="card app reveal" href="https://kazukinakajimacat.github.io/formation_maker_cat/" target="_blank" rel="noopener">
+        <img src="images/app-formation_maker_cat.jpg" alt="Formation Maker の画面" loading="lazy">
+        <div class="body">
+          <span class="label">サッカー</span>
+          <h3>Formation Maker</h3>
+          <p>サッカーのスターティングメンバー表とフォーメーションを直感的に作れるWebアプリです。</p>
+          <span class="more">ひらく →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ブログ・執筆記事 ===== -->
+<section id="writing">
+  <div class="wrap">
+    <p class="eyebrow">Blog</p>
+    <h2>ブログ</h2>
+    <div class="grid g3">
+      <a class="card blog reveal" href="https://note.com/yakitori_marinos" target="_blank" rel="noopener">
+        <span class="site">NOTE</span>
+        <h3>Kazuki Nakajima ｜ note</h3>
+        <p>「キャリア」「採用」「働きがい」について発信しています。組織づくりや採用の考え方をまとめた長めの記事が中心です。</p>
+        <span class="more">読む →</span>
+      </a>
+      <a class="card blog reveal" href="https://sizu.me/kazu_yakitori" target="_blank" rel="noopener">
+        <span class="site">しずかなインターネット</span>
+        <h3>kazuki_yakitori</h3>
+        <p>日記やエッセイを、肩の力を抜いて書いています。日々のこと、考えたこと、振り返り。</p>
+        <span class="more">読む →</span>
+      </a>
+      <a class="card blog reveal" href="https://sizu.me/kazu_yakitori?tag=%E3%81%84%E3%81%9F%E3%81%A0%E3%81%8D%E3%81%BE%E3%81%99%E3%80%81%E6%97%A5%E6%9C%AC%EF%BC%81" target="_blank" rel="noopener">
+        <span class="site">しずかなインターネット ・ 連載</span>
+        <h3>いただきます、日本！</h3>
+        <p>日本各地の「おいしい」を味わって綴るシリーズ。地方の食と、その土地への想いを。</p>
+        <span class="more">読む →</span>
+      </a>
+    </div>
+
+    <div class="articles">
+      <h3>執筆記事</h3>
+      <div class="grid g4 art-grid">
+        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/nf21b20bad503" target="_blank" rel="noopener"><img src="images/note-2.jpg" alt="" loading="lazy"><div><time datetime="2026-07-17">2026.07.17</time><span>リモート・地方・政治・メディアは、すべてつながっている ── 人口減少社会をめぐる一本の輪</span></div></a>
+        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n76923e6cc9ec" target="_blank" rel="noopener"><img src="images/note-3.jpg" alt="" loading="lazy"><div><time datetime="2026-07-11">2026.07.11</time><span>何のために採用し、どう口説き、活躍の場をどう作るか ── 採用を三つの局面で捉え直す</span></div></a>
+        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/nfc58505a1b1f" target="_blank" rel="noopener"><img src="images/note-8.jpg" alt="" loading="lazy"><div><time datetime="2025-12-29">2025.12.29</time><span>人が力を出し切るために、何ができるか ── プロダクト採用を終えて、次の挑戦</span></div></a>
+        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n1d872b24de98" target="_blank" rel="noopener"><img src="images/note-6.jpg" alt="" loading="lazy"><div><time datetime="2025-11-22">2025.11.22</time><span>採用の前提が変わった時代に、リクルーターは何を担うべきか</span></div></a>
+        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n8b608e7c02f4" target="_blank" rel="noopener"><img src="images/note-5.jpg" alt="" loading="lazy"><div><time datetime="2025-11-13">2025.11.13</time><span>個の幸福が共創を生み、共創が成長をつくる ── 成長を循環させる組織モデル</span></div></a>
+        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/neae5e15656f3" target="_blank" rel="noopener"><img src="images/note-4.jpg" alt="" loading="lazy"><div><time datetime="2025-11-09">2025.11.09</time><span>採用を入口で終わらせない ── 信頼・共感・体験でつくる、選ばれる組織の設計図</span></div></a>
+        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n0992d46f8d7b" target="_blank" rel="noopener"><img src="images/note-1.jpg" alt="" loading="lazy"><div><time datetime="2025-09-07">2025.09.07</time><span>採用の未来を拓く ── 組織成長を加速する「採用×組織作り×技術発信・採用広報」の循環型モデル</span></div></a>
+        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n02e2cc335947" target="_blank" rel="noopener"><img src="images/note-7.jpg" alt="" loading="lazy"><div><time datetime="2024-12-22">2024.12.22</time><span>自己分析をしたら行動指針も作ってみませんか？</span></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== コミュニティ ===== -->
+<section id="community" class="band">
+  <div class="wrap">
+    <p class="eyebrow">Community</p>
+    <h2>HR Share</h2>
+    <div class="community">
+      <div class="card reveal">
+        <h3 style="margin-bottom:10px">「採用」と「人事」を語り合うコミュニティ</h3>
+        <p>パーソル時代の同僚と共に立ち上げました。主にSlackで情報共有をしています。興味のある方は、お気軽にご連絡ください。</p>
+      </div>
+      <div class="cal">
+        <a class="card reveal" href="https://adventar.org/calendars/11557" target="_blank" rel="noopener"><span>アドベントカレンダー 2025</span><span class="more">→</span></a>
+        <a class="card reveal" href="https://adventar.org/calendars/10515" target="_blank" rel="noopener"><span>アドベントカレンダー 2024</span><span class="more">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--daidai)">Contact</p>
+    <h2>お気軽にどうぞ。</h2>
+    <p style="margin-bottom:28px;max-width:36rem">採用・キャリアのご相談、猫の縁側へのご興味、記事の感想など、SNSのDMからお気軽にご連絡ください。</p>
+    <div class="sns">
+      <a href="https://x.com/kazuki_nakajima" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X ／ @kazuki_nakajima</a>
+      <a href="https://www.linkedin.com/in/kazukinakajima/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+    </div>
+    <p class="copy">© Kazuki Nakajima ｜ Talent Success Partner</p>
+  </div>
+</footer>
+
+<script>
+// スクロールで要素をふわっと出す
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
