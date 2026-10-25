@@ -59,8 +59,8 @@ header{
   border-bottom:1px solid var(--line);
 }
 .head{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.08em;white-space:nowrap}
-.brand img{width:32px;height:32px;border-radius:50%;flex:none}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.08em;white-space:nowrap;flex:none}
+.brand img{width:32px;height:32px;max-width:none;border-radius:50%;flex:none;object-fit:cover}
 nav{overflow-x:auto;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
 nav ul{display:flex;gap:4px;list-style:none;white-space:nowrap}
@@ -104,6 +104,9 @@ h3{font-weight:700;color:var(--sumi);font-size:1.08rem;line-height:1.6}
 .sns svg{width:16px;height:16px;flex:none}
 .portrait{justify-self:center;width:min(360px,100%);aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--card);box-shadow:0 20px 50px rgba(20,20,20,.15)}
 .portrait img{width:100%;height:100%;object-fit:cover}
+.name-row{display:flex;align-items:center;gap:20px;margin-bottom:28px}
+.name-row .name-en{margin-bottom:0}
+.name-avatar{display:none;width:88px;height:88px;max-width:none;flex:none;border-radius:50%;object-fit:cover;border:4px solid var(--card);box-shadow:0 8px 20px rgba(20,20,20,.12)}
 
 /* ===== 猫 ===== */
 .cats-title{margin:48px 0 16px}
@@ -131,6 +134,12 @@ h3{font-weight:700;color:var(--sumi);font-size:1.08rem;line-height:1.6}
 .linkrow span{font-size:.9rem;font-weight:500;line-height:1.6}
 .linkrow small{display:block;font-size:.75rem;color:var(--muted)}
 .stack{display:grid;gap:12px}
+.sidework{grid-column:1 / -1;margin-top:-8px}
+.sidework h3{margin-bottom:12px}
+.sidework ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,auto);grid-auto-flow:column;column-gap:56px}
+.sidework li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:10px 0}
+.sidework .co{font-weight:700;color:var(--sumi);font-size:.95rem}
+.sidework .role-tag{font-size:.82rem;color:var(--muted);text-align:right}
 
 /* ===== 行動指針 ===== */
 .mvv{padding:18px 32px}
@@ -208,7 +217,8 @@ footer .sns a:hover{border-color:var(--engawa)}
   .cats.g3{grid-template-columns:repeat(3,1fr);gap:12px}
   .hero-in,.career,.project,.community{grid-template-columns:1fr}
   .hero-in{gap:40px}
-  .portrait{width:240px;grid-row:1}
+  .portrait{display:none}
+  .name-avatar{display:block}
   .project-art{aspect-ratio:16/9;min-height:0;height:auto}
 }
 @media (max-width:600px){
@@ -225,9 +235,11 @@ footer .sns a:hover{border-color:var(--engawa)}
   .mvv{padding:4px 20px}
   .mvv .row{grid-template-columns:1fr;gap:4px;padding:18px 0}
   .brand span{display:none}
-  .portrait{width:200px}
+  .name-avatar{width:72px;height:72px}
+  .name-row{gap:16px}
   .linkrow img{width:80px}
   .project-body{padding:24px 20px}
+  .sidework ul{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row;padding:0}
 }
 </style>
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
@@ -259,8 +271,13 @@ footer .sns a:hover{border-color:var(--engawa)}
 <section class="hero">
   <div class="wrap hero-in">
     <div>
-      <h1 class="name">中島 一貴</h1>
-      <p class="name-en">KAZUKI NAKAJIMA</p>
+      <div class="name-row">
+        <img class="name-avatar" src="images/avatar.jpg" alt="">
+        <div>
+          <h1 class="name">中島 一貴</h1>
+          <p class="name-en">KAZUKI NAKAJIMA</p>
+        </div>
+      </div>
       <p class="title-en">Talent Success Partner</p>
       <p class="statement">── 一人ひとりの熱狂に伴走し、パフォーマンスを最大化する環境を構築する</p>
       <div class="role">
@@ -327,6 +344,19 @@ footer .sns a:hover{border-color:var(--engawa)}
       <li><span class="no">6社目</span><br><a href="https://commmune.jp/" target="_blank" rel="noopener">コミューン株式会社</a><p>エンジニア採用 ⇒ DevHR</p></li>
       <li class="now"><span class="no">7社目・現職</span><br><a href="https://ivry.jp/company/" target="_blank" rel="noopener">株式会社IVRy</a><p>エンジニア採用・採用広報/技術広報・採用Ops ⇒ コーポレート採用・採用広報・採用Ops</p></li>
     </ol>
+
+    <div class="sidework reveal">
+      <h3>副業実績</h3>
+      <ul>
+        <li><span class="co">株式会社HRdev</span><span class="role-tag">コンテンツマーケティング</span></li>
+        <li><span class="co">株式会社C</span><span class="role-tag">採用支援</span></li>
+        <li><span class="co">株式会社LiftBase</span><span class="role-tag">カスタマーサクセス支援</span></li>
+        <li><span class="co">Loop Now Technologies Inc.</span><span class="role-tag">人事</span></li>
+        <li><span class="co">株式会社FUN UP</span><span class="role-tag">人事</span></li>
+        <li><span class="co">株式会社おてつたび</span><span class="role-tag">人事</span></li>
+        <li><span class="co">株式会社GOAL-B</span><span class="role-tag">キャリアコーチ</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
