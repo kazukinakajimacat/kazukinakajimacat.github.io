@@ -10,7 +10,7 @@
 - キャリア
 - 行動指針・好きな言葉・目指す未来
 - 進めているプロジェクト（[猫の縁側](https://kazukinakajimacat.github.io/nekono-engawa/)）
-- 自己開発（[けいさん れんしゅう](https://kazukinakajimacat.github.io/keisan-renshu/) / [流入計測URL作成ツール ( UTM Builder )](https://kazukinakajimacat.github.io/utm-builder-cat/) / [Formation Maker](https://kazukinakajimacat.github.io/formation_maker_cat/)）
+- 自己開発（[まいにち しゅぎょう](https://kazukinakajimacat.github.io/keisan-renshu/) / [流入計測URL作成ツール ( UTM Builder )](https://kazukinakajimacat.github.io/utm-builder-cat/) / [Formation Maker](https://kazukinakajimacat.github.io/formation_maker_cat/)）
 - ブログ・執筆記事（note / しずかなインターネット）
 - コミュニティ（HR Share）
 
