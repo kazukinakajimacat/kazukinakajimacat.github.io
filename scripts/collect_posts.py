@@ -2,7 +2,7 @@
 """note・しずかなインターネット・LinkedIn（記事のみ）の投稿を集めて data/posts.json に保存する。
 
 - note は公開API、しずかなインターネットは記事一覧APIから自動で取る。
-- 2025年1月1日以降の記事だけを載せる（SINCE）。
+- 2021年6月1日（人事になってから）以降の記事だけを載せる（SINCE）。
 - LinkedIn は data/linkedin.json（手で足すリスト）を読み込む。
 - 既存の posts.json に「足していく」方式。取得に失敗した配信元があっても、前回までの記事は消さない。
 - 標準ライブラリだけで動く（GitHub Actions でもローカルでも python3 scripts/collect_posts.py で実行）。
@@ -24,7 +24,7 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
 NOTE_USER = "yakitori_marinos"
 SIZU_USER = "kazu_yakitori"
 SIZU_USER_ID = 21558
-SINCE = "2025-01-01"  # これより前の記事は載せない
+SINCE = "2021-06-01"  # 人事になってから（これより前の記事は載せない）
 
 
 def get(url):
@@ -57,7 +57,7 @@ def collect_note():
 
 
 def collect_sizu(known=frozenset()):
-    # 公開ページが使っている記事一覧API（1ページ18件）。2025年より前に届くか、
+    # 公開ページが使っている記事一覧API（1ページ18件）。SINCE より前に届くか、
     # 1ページまるごと取り込み済みの記事だったらそこで止める（普段は1ページで終わる）。
     posts, page = [], 1
     while page and page <= 100:
@@ -101,7 +101,7 @@ def main():
     old = json.loads(OUT.read_text("utf-8")) if OUT.exists() else {"posts": []}
     merged = {p["url"]: p for p in old.get("posts", [])}
     failed = []
-    # --full のときは取り込み済みでも止まらず、2025年まで全部さかのぼる
+    # --full のときは取り込み済みでも止まらず、SINCE まで全部さかのぼる
     known = frozenset() if "--full" in sys.argv else frozenset(merged)
     sources = (("note", collect_note), ("sizu", lambda: collect_sizu(known)), ("linkedin", collect_linkedin))
     for name, fn in sources:
