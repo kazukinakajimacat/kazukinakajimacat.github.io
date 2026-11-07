@@ -202,6 +202,48 @@ blockquote::before{content:"“";position:absolute;top:-6px;left:16px;font-size:
 .magazine h3{margin:2px 0 4px}
 .magazine p{font-size:.88rem;line-height:1.8;margin-bottom:6px}
 
+/* ===== 投稿カレンダー ===== */
+.postcal{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:stretch}
+.pc-month{padding:22px 22px 18px}
+.pc-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}
+.pc-head b{font-family:'Noto Serif JP',serif;font-size:1.2rem;color:var(--sumi);letter-spacing:.06em}
+.pc-nav{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--sumi);font-size:1.1rem;cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.pc-nav:hover:not(:disabled){background:var(--hidamari)}
+.pc-nav:disabled{opacity:.3;cursor:default}
+.pc-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.pc-dow{font-size:.72rem;color:var(--muted);font-weight:500;padding-bottom:4px}
+.pc-dow.sun{color:var(--akane)}
+.pc-day{aspect-ratio:1;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:.88rem;color:var(--muted);border:1px solid transparent;background:none;font-family:inherit;padding:0}
+button.pc-day{color:var(--sumi);font-weight:700;cursor:pointer;background:var(--kinari);transition:background .2s,border-color .2s}
+button.pc-day:hover{border-color:var(--engawa)}
+button.pc-day[aria-pressed="true"]{background:var(--sumi);color:#fff}
+.pc-day.today{border-color:var(--akane)}
+.pc-dots{display:flex;gap:3px;height:6px}
+.pc-dots i{width:6px;height:6px;border-radius:50%}
+.src-note{--c:var(--akane)}
+.src-sizu{--c:var(--moss)}
+.src-linkedin{--c:#4A6F8F}
+.pc-dots i,.pc-legend i{background:var(--c)}
+.pc-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.pc-legend button{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:.78rem;font-weight:500;padding:5px 12px;border-radius:100px;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;transition:opacity .2s}
+.pc-legend button[aria-pressed="false"]{opacity:.4}
+.pc-legend i{width:8px;height:8px;border-radius:50%}
+/* 記事一覧の高さはカレンダーに合わせ、はみ出す分は中でスクロール */
+.pc-list{padding:22px 24px;display:flex;flex-direction:column;height:0;min-height:100%}
+.pc-list h3{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.pc-list h3 small{font-size:.8rem;color:var(--muted);font-weight:500}
+.pc-list ul{list-style:none;flex:1;min-height:0;overflow-y:auto;margin-right:-8px;padding-right:8px}
+.pc-list li a{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.pc-list li:last-child a{border-bottom:0}
+.pc-list li a:hover .t{color:var(--akane)}
+.pc-list time{font-size:.78rem;color:var(--muted);white-space:nowrap;padding-top:2px}
+.pc-list .t{font-size:.9rem;font-weight:500;color:var(--sumi);line-height:1.6;transition:color .2s}
+.pc-list .s{grid-column:2;display:inline-flex;align-items:center;gap:6px;font-size:.72rem;color:var(--muted)}
+.pc-list .s i{width:6px;height:6px;border-radius:50%;background:var(--c)}
+.pc-empty{color:var(--muted);font-size:.9rem;padding:16px 0}
+.pc-reset{font:inherit;font-size:.8rem;color:var(--akane);background:none;border:0;cursor:pointer;font-weight:700;padding:0}
+.pc-updated{margin-top:14px;font-size:.75rem;color:var(--muted)}
+
 /* ===== コミュニティ ===== */
 .community{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
 .community .card{padding:28px}
@@ -234,7 +276,10 @@ footer .sns a:hover{border-color:var(--engawa)}
   nav a{font-size:1rem;color:var(--sumi);padding:12px 12px;border-radius:12px}
   .g3,.g4{grid-template-columns:repeat(2,1fr)}
   .cats.g3{grid-template-columns:repeat(3,1fr);gap:12px}
-  .hero-in,.project,.community{grid-template-columns:1fr}
+  .hero-in,.project,.community,.postcal{grid-template-columns:1fr}
+  .pc-month{max-width:520px;width:100%}
+  .pc-list{height:auto;min-height:0}
+  .pc-list ul{flex:none;max-height:420px}
   .career{display:flex;flex-direction:column;align-items:stretch;gap:0}
   .career > div:first-child{display:contents}
   .career .eyebrow{order:1}
@@ -256,9 +301,11 @@ footer .sns a:hover{border-color:var(--engawa)}
   .cats.g3{grid-template-columns:repeat(3,1fr);gap:10px}
   .cat div{padding:8px 10px}
   .cat b{font-size:.95rem}
-  .art-grid.g4{grid-template-columns:repeat(2,1fr);gap:12px}
-  .art div{padding:10px 12px 14px}
-  .art span{font-size:.8rem}
+  .art-grid.g4{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:4px 16px 20px;scrollbar-width:none}
+  .art-grid::-webkit-scrollbar{display:none}
+  .art{flex:0 0 78%;scroll-snap-align:center}
+  .art div{padding:12px 14px 16px}
+  .art span{font-size:.82rem}
   .mvv{padding:4px 20px}
   .mvv .row{grid-template-columns:1fr;gap:4px;padding:18px 0}
   .name-avatar{width:72px;height:72px}
@@ -268,6 +315,10 @@ footer .sns a:hover{border-color:var(--engawa)}
   .magazine{flex-direction:column;align-items:stretch;gap:14px;padding:16px}
   .magazine img{width:100%}
   .sidework ul{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row;padding:0}
+  .pc-month{padding:16px 12px 14px}
+  .pc-grid{gap:2px}
+  .pc-day{border-radius:10px;font-size:.82rem}
+  .pc-list{padding:18px 18px}
 }
 </style>
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
@@ -288,6 +339,7 @@ footer .sns a:hover{border-color:var(--engawa)}
         <li><a href="#project">Project</a></li>
         <li><a href="#works">Works</a></li>
         <li><a href="#writing">Blog</a></li>
+        <li><a href="#calendar">Writing Log</a></li>
         <li><a href="#community">Community</a></li>
       </ul>
     </nav>
@@ -519,16 +571,13 @@ footer .sns a:hover{border-color:var(--engawa)}
     </div>
 
     <div class="articles">
-      <h3>執筆記事</h3>
+      <h3>ピックアップ</h3>
+      <p class="sub" style="margin:-8px 0 16px">まず読んでほしい4本です。すべての記事は、下の<a href="#calendar" style="color:var(--akane);font-weight:700">執筆の記録</a>から日付順に見られます。</p>
       <div class="grid g4 art-grid">
-        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/ncc8b10847d28" target="_blank" rel="noopener"><img src="images/note-9.jpg" alt="" loading="lazy"><div><time datetime="2026-07-25">2026.07.25</time><span>カルチャーフィットとカルチャーアド ── 見るべきは、方向ではなく判断の参照点</span></div></a>
         <a class="card art reveal" href="https://note.com/yakitori_marinos/n/nf21b20bad503" target="_blank" rel="noopener"><img src="images/note-2.jpg" alt="" loading="lazy"><div><time datetime="2026-07-17">2026.07.17</time><span>リモート・地方・政治・メディアは、すべてつながっている ── 人口減少社会をめぐる一本の輪</span></div></a>
-        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n76923e6cc9ec" target="_blank" rel="noopener"><img src="images/note-3.jpg" alt="" loading="lazy"><div><time datetime="2026-07-11">2026.07.11</time><span>何のために採用し、どう口説き、活躍の場をどう作るか ── 採用を三つの局面で捉え直す</span></div></a>
-        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n1d872b24de98" target="_blank" rel="noopener"><img src="images/note-6.jpg" alt="" loading="lazy"><div><time datetime="2025-11-22">2025.11.22</time><span>採用の前提が変わった時代に、リクルーターは何を担うべきか</span></div></a>
-        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n8b608e7c02f4" target="_blank" rel="noopener"><img src="images/note-5.jpg" alt="" loading="lazy"><div><time datetime="2025-11-13">2025.11.13</time><span>個の幸福が共創を生み、共創が成長をつくる ── 成長を循環させる組織モデル</span></div></a>
-        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/neae5e15656f3" target="_blank" rel="noopener"><img src="images/note-4.jpg" alt="" loading="lazy"><div><time datetime="2025-11-09">2025.11.09</time><span>採用を入口で終わらせない ── 信頼・共感・体験でつくる、選ばれる組織の設計図</span></div></a>
         <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n0992d46f8d7b" target="_blank" rel="noopener"><img src="images/note-1.jpg" alt="" loading="lazy"><div><time datetime="2025-09-07">2025.09.07</time><span>採用の未来を拓く ── 組織成長を加速する「採用×組織作り×技術発信・採用広報」の循環型モデル</span></div></a>
-        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n02e2cc335947" target="_blank" rel="noopener"><img src="images/note-7.jpg" alt="" loading="lazy"><div><time datetime="2024-12-22">2024.12.22</time><span>自己分析をしたら行動指針も作ってみませんか？</span></div></a>
+        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/n76923e6cc9ec" target="_blank" rel="noopener"><img src="images/note-3.jpg" alt="" loading="lazy"><div><time datetime="2026-07-11">2026.07.11</time><span>何のために採用し、どう口説き、活躍の場をどう作るか ── 採用を三つの局面で捉え直す</span></div></a>
+        <a class="card art reveal" href="https://note.com/yakitori_marinos/n/nd20fe7ad28a6" target="_blank" rel="noopener"><img src="images/note-10.jpg" alt="" loading="lazy"><div><time datetime="2026-11-07">2026.11.07</time><span>自己応募もリファラルも、社内の良い体験から始まる</span></div></a>
       </div>
       <a class="card magazine reveal" href="https://note.com/yakitori_marinos/m/m55a00fddc8eb" target="_blank" rel="noopener">
         <img src="images/note-magazine.jpg" alt="" loading="lazy">
@@ -543,8 +592,33 @@ footer .sns a:hover{border-color:var(--engawa)}
   </div>
 </section>
 
+<!-- ===== 執筆の記録：カレンダー（data/posts.json を GitHub Actions が自動更新） ===== -->
+<section id="calendar" class="band">
+  <div class="wrap">
+    <p class="eyebrow">Writing Log</p>
+    <h2>執筆の記録</h2>
+    <p class="lead" style="margin-bottom:32px">note・しずかなインターネット・LinkedIn に書いた記事を、日付ごとにまとめています。新しい記事は自動で追加されます。</p>
+    <div class="postcal">
+      <div class="card pc-month reveal">
+        <div class="pc-head">
+          <button class="pc-nav" type="button" data-step="-1" aria-label="前の月">‹</button>
+          <b id="pc-title" aria-live="polite"></b>
+          <button class="pc-nav" type="button" data-step="1" aria-label="次の月">›</button>
+        </div>
+        <div class="pc-grid" id="pc-grid"></div>
+        <div class="pc-legend" id="pc-legend" aria-label="表示する配信元"></div>
+      </div>
+      <div class="card pc-list reveal">
+        <h3><span id="pc-list-title">記事</span><small id="pc-count"></small></h3>
+        <ul id="pc-items"><li class="pc-empty">読み込み中…</li></ul>
+        <p class="pc-updated" id="pc-updated"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== コミュニティ ===== -->
-<section id="community" class="band">
+<section id="community">
   <div class="wrap">
     <p class="eyebrow">Community</p>
     <h2>HR Share</h2>
@@ -589,6 +663,79 @@ footer .sns a:hover{border-color:var(--engawa)}
   header.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
   document.addEventListener('click',function(e){if(!header.contains(e.target))set(false)});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+})();
+
+// 投稿カレンダー
+(function(){
+  var SRC={note:'note',sizu:'しずかなインターネット',linkedin:'LinkedIn'};
+  var DOW=['日','月','火','水','木','金','土'];
+  var grid=document.getElementById('pc-grid'), title=document.getElementById('pc-title'),
+      legend=document.getElementById('pc-legend'), items=document.getElementById('pc-items'),
+      listTitle=document.getElementById('pc-list-title'), count=document.getElementById('pc-count'),
+      updated=document.getElementById('pc-updated'), navs=document.querySelectorAll('.pc-nav');
+  var posts=[], on={note:true,sizu:true,linkedin:true}, sel=null, y, m, minYM, maxYM;
+  function pad(n){return (n<10?'0':'')+n}
+  function jstNow(){var d=new Date(Date.now()+9*36e5);return {y:d.getUTCFullYear(),m:d.getUTCMonth(),d:d.getUTCDate()}}
+  function key(yy,mm,dd){return yy+'-'+pad(mm+1)+'-'+pad(dd)}
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function shown(){return posts.filter(function(p){return on[p.source]})}
+
+  function render(){
+    var ym=y*12+m, now=jstNow(), byDay={};
+    title.textContent=y+'年 '+(m+1)+'月';
+    navs[0].disabled=ym<=minYM; navs[1].disabled=ym>=maxYM;
+    var monthPosts=shown().filter(function(p){return p.date.slice(0,7)===y+'-'+pad(m+1)});
+    monthPosts.forEach(function(p){var d=p.date.slice(0,10);(byDay[d]=byDay[d]||[]).push(p)});
+    var h=DOW.map(function(d,i){return '<div class="pc-dow'+(i===0?' sun':'')+'">'+d+'</div>'}).join('');
+    var first=new Date(Date.UTC(y,m,1)).getUTCDay(), days=new Date(Date.UTC(y,m+1,0)).getUTCDate();
+    for(var i=0;i<first;i++) h+='<div></div>';
+    for(var d=1;d<=days;d++){
+      var k=key(y,m,d), ps=byDay[k], today=(now.y===y&&now.m===m&&now.d===d)?' today':'';
+      if(ps){
+        var srcs=Object.keys(SRC).filter(function(s){return ps.some(function(p){return p.source===s})});
+        h+='<button type="button" class="pc-day'+today+'" data-day="'+k+'" aria-pressed="'+(sel===k)+'" aria-label="'+(m+1)+'月'+d+'日 '+ps.length+'件">'+d+
+           '<span class="pc-dots">'+srcs.map(function(s){return '<i class="src-'+s+'"></i>'}).join('')+'</span></button>';
+      }else{
+        h+='<div class="pc-day'+today+'">'+d+'<span class="pc-dots"></span></div>';
+      }
+    }
+    grid.innerHTML=h;
+
+    var list=sel?(byDay[sel]||[]):monthPosts;
+    if(sel){var p=sel.split('-');listTitle.innerHTML=(+p[1])+'月'+(+p[2])+'日の記事 <button type="button" class="pc-reset">月全体を見る</button>';}
+    else listTitle.textContent=(m+1)+'月の記事';
+    count.textContent=list.length+'件';
+    items.innerHTML=list.length?list.map(function(p){
+      var w=DOW[new Date(Date.UTC(+p.date.slice(0,4),+p.date.slice(5,7)-1,+p.date.slice(8,10))).getUTCDay()];
+      return '<li><a href="'+esc(p.url)+'" target="_blank" rel="noopener"><time datetime="'+p.date.slice(0,10)+'">'+p.date.slice(5,7)+'.'+p.date.slice(8,10)+' ('+w+')</time>'+
+        '<span class="t">'+esc(p.title)+'</span><span class="s src-'+p.source+'"><i></i>'+SRC[p.source]+'</span></a></li>';
+    }).join(''):'<li class="pc-empty">この月の投稿はまだありません。</li>';
+  }
+
+  legend.innerHTML=Object.keys(SRC).map(function(s){
+    return '<button type="button" class="src-'+s+'" data-src="'+s+'" aria-pressed="true"><i></i>'+SRC[s]+'</button>';
+  }).join('');
+  legend.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    on[b.dataset.src]=!on[b.dataset.src];b.setAttribute('aria-pressed',on[b.dataset.src]);
+    sel=null;render();
+  });
+  navs.forEach(function(b){b.addEventListener('click',function(){
+    var ym=y*12+m+(+b.dataset.step);y=Math.floor(ym/12);m=ym%12;sel=null;render();
+  })});
+  grid.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    sel=sel===b.dataset.day?null:b.dataset.day;render();
+  });
+  items.parentNode.addEventListener('click',function(e){if(e.target.closest('.pc-reset')){sel=null;render();}});
+
+  var now=jstNow();y=now.y;m=now.m;maxYM=y*12+m;minYM=maxYM;render();
+  fetch('data/posts.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){
+    posts=d.posts||[];
+    posts.forEach(function(p){var ym=+p.date.slice(0,4)*12+(+p.date.slice(5,7)-1);if(ym<minYM)minYM=ym;});
+    if(d.updated){var u=d.updated;updated.textContent='最終更新 '+u.slice(0,4)+'.'+u.slice(5,7)+'.'+u.slice(8,10)+' '+u.slice(11,16);}
+    render();
+  }).catch(function(){items.innerHTML='<li class="pc-empty">記事を読み込めませんでした。</li>';});
 })();
 
 // スクロールで要素をふわっと出す
