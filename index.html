@@ -753,6 +753,61 @@ footer .sns a:hover{border-color:var(--engawa)}
   },{rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(e){io.observe(e)});
 })();
+
+/* アクセス計測（GoatCounter）
+   - 何人：GoatCounter の通常の計測（同じ人の再読み込みは数えない）
+   - 何回：読み込むたびに「_アクセス」を1回送る
+   - 何をクリック：リンクのクリックを1回ずつ送る（執筆の記録のように後から作られるリンクも拾う）
+   - 滞在時間：はじめてページを離れたとき（タブを閉じる・切り替える）に、見ていた時間の区分を1回送る
+   回数・クリック・滞在は「イベント」として、重複を除かずに数える（no_session）。 */
+(function(){
+  /* ?utm_source=… 付きで来ても同じページとして数える（流入元は GoatCounter が別に記録する） */
+  window.goatcounter=window.goatcounter||{};
+  goatcounter.path=function(p){return p.split('?')[0]||'/'};
+  function send(path,title){
+    if(!window.goatcounter||!goatcounter.count)return;
+    goatcounter.count({event:true,path:path,title:title,referrer:'',no_session:true});
+  }
+
+  /* 何回（裏で開かれたタブは、実際に表に出たときに数える） */
+  window.addEventListener('load',function(){
+    function view(){if(document.visibilityState!=='visible')return;document.removeEventListener('visibilitychange',view);send('_アクセス','アクセス（回数）')}
+    if(document.visibilityState==='visible')view();else document.addEventListener('visibilitychange',view);
+  });
+
+  /* 何をクリック */
+  function onClick(e){
+    if(e.type==='auxclick'&&e.button!==1)return;
+    var a=e.target.closest&&e.target.closest('a[href]');
+    if(!a||!/^https?:$/.test(a.protocol))return;
+    var inPage=a.origin===location.origin&&a.pathname===location.pathname;
+    var path;
+    if(inPage){if(!a.hash)return;path='ページ内 '+a.hash}  /* メニューなど、このページの中の移動 */
+    else{path=a.hostname.replace(/^www\./,'')+a.pathname;try{path=decodeURI(path)}catch(_){}}
+    var t=a.querySelector('.t, .art div > span, h3');  /* カードは日付や説明文を除いた題名だけ */
+    var title=((t||a).textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,200)||path;
+    send(path,title);
+  }
+  document.addEventListener('click',onClick,true);
+  document.addEventListener('auxclick',onClick,true);
+
+  /* 滞在時間（画面に出ていた時間だけを数える） */
+  var STAY=[[10,'〜10秒'],[30,'10〜30秒'],[60,'30秒〜1分'],[180,'1〜3分'],[600,'3〜10分'],[Infinity,'10分以上']];
+  var shown=0,since=document.visibilityState==='visible'?Date.now():0,sent=false;
+  function leave(){
+    if(sent)return;
+    if(since){shown+=Date.now()-since;since=0}
+    var sec=shown/1000;if(sec<1)return;  /* 開いてすぐ裏に回ったタブは数えない */
+    for(var i=0;i<STAY.length;i++)if(sec<STAY[i][0])break;
+    sent=true;send('_滞在/'+(i+1),'滞在 '+STAY[i][1]);
+  }
+  document.addEventListener('visibilitychange',function(){
+    if(document.visibilityState==='hidden')leave();
+    else if(!since)since=Date.now();
+  });
+  window.addEventListener('pagehide',leave);
+})();
 </script>
+<script data-goatcounter="https://kazukinakajimacat.goatcounter.com/count" async src="js/count.js"></script>
 </body>
 </html>
