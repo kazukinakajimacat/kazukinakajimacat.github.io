@@ -207,6 +207,10 @@ blockquote::before{content:"“";position:absolute;top:-6px;left:16px;font-size:
 .pc-month{padding:22px 22px 18px}
 .pc-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}
 .pc-head b{font-family:'Noto Serif JP',serif;font-size:1.2rem;color:var(--sumi);letter-spacing:.06em}
+.pc-center{display:flex;align-items:center;gap:10px}
+.pc-today{font:inherit;font-size:.75rem;font-weight:700;padding:3px 12px;border-radius:100px;border:1px solid var(--akane);background:var(--card);color:var(--akane);cursor:pointer;transition:background .2s,color .2s,opacity .2s}
+.pc-today:hover:not(:disabled){background:var(--akane);color:#fff}
+.pc-today:disabled{border-color:var(--line);color:var(--muted);opacity:.5;cursor:default}
 .pc-nav{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--sumi);font-size:1.1rem;cursor:pointer;display:grid;place-items:center;transition:background .2s}
 .pc-nav:hover:not(:disabled){background:var(--hidamari)}
 .pc-nav:disabled{opacity:.3;cursor:default}
@@ -602,7 +606,7 @@ footer .sns a:hover{border-color:var(--engawa)}
       <div class="card pc-month reveal">
         <div class="pc-head">
           <button class="pc-nav" type="button" data-step="-1" aria-label="前の月">‹</button>
-          <b id="pc-title" aria-live="polite"></b>
+          <div class="pc-center"><b id="pc-title" aria-live="polite"></b><button class="pc-today" id="pc-today" type="button">今日</button></div>
           <button class="pc-nav" type="button" data-step="1" aria-label="次の月">›</button>
         </div>
         <div class="pc-grid" id="pc-grid"></div>
@@ -669,7 +673,7 @@ footer .sns a:hover{border-color:var(--engawa)}
 (function(){
   var SRC={note:'note',sizu:'しずかなインターネット',linkedin:'LinkedIn'};
   var DOW=['日','月','火','水','木','金','土'];
-  var grid=document.getElementById('pc-grid'), title=document.getElementById('pc-title'),
+  var grid=document.getElementById('pc-grid'), title=document.getElementById('pc-title'), todayBtn=document.getElementById('pc-today'),
       legend=document.getElementById('pc-legend'), items=document.getElementById('pc-items'),
       listTitle=document.getElementById('pc-list-title'), count=document.getElementById('pc-count'),
       updated=document.getElementById('pc-updated'), navs=document.querySelectorAll('.pc-nav');
@@ -684,6 +688,7 @@ footer .sns a:hover{border-color:var(--engawa)}
     var ym=y*12+m, now=jstNow(), byDay={};
     title.textContent=y+'年 '+(m+1)+'月';
     navs[0].disabled=ym<=minYM; navs[1].disabled=ym>=maxYM;
+    todayBtn.disabled=(y===now.y&&m===now.m&&!sel);
     var monthPosts=shown().filter(function(p){return p.date.slice(0,7)===y+'-'+pad(m+1)});
     monthPosts.forEach(function(p){var d=p.date.slice(0,10);(byDay[d]=byDay[d]||[]).push(p)});
     var h=DOW.map(function(d,i){return '<div class="pc-dow'+(i===0?' sun':'')+'">'+d+'</div>'}).join('');
@@ -729,6 +734,7 @@ footer .sns a:hover{border-color:var(--engawa)}
   });
   items.parentNode.addEventListener('click',function(e){if(e.target.closest('.pc-reset')){sel=null;render();}});
 
+  todayBtn.addEventListener('click',function(){var n=jstNow();y=n.y;m=n.m;sel=null;render();});
   var now=jstNow();y=now.y;m=now.m;maxYM=y*12+m;minYM=maxYM;render();
   fetch('data/posts.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){
     posts=d.posts||[];
