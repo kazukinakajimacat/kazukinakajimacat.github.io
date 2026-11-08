@@ -2,7 +2,7 @@ name: 執筆の記録を更新
 
 on:
   schedule:
-    - cron: "17 */3 * * *" # 3時間ごと
+    - cron: "17 * * * *" # 1時間ごと（GitHub は混雑時に定期実行を飛ばすことがあるので、間隔を短めに）
   workflow_dispatch: # 手動でも実行できる
   push:
     branches: [main]
